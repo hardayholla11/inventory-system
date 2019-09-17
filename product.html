@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Product page</title>
-    <link>
+    <link rel="stylesheet" type="text/css" href="grocery.css">
 </head>
 
 <body>
+
+    <div id="header">
+        <h1>Grocery Mobile Inventory System</h1>
+    </div>
     <div>
-        <form>
+        <form id="submitProduct">
             <fieldset>
                 <legend>Create a New Product</legend>
                 <label>Product Name:</label><br>
@@ -23,10 +27,40 @@
                 <input type="text" id="productPrice"><br>
                 <label>Product Quantity:</label><br>
                 <input type="text" id="productQuantity"><br>
+                <label>Product Id:</label><br>
+                <input type="text" id="productId"><br>
             </fieldset>
-            <button type="submit" name="submitProduct">Submit</button>
-            <button type="reset" name="resetProduct">Reset</button>
+            <button type="submit" id="submitProduct">Submit</button>
+            <button type="reset" id="resetProduct">Reset</button>
         </form>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('form').on('submitProduct', function(e) {
+                    e.preventDefault();
+                    let productName = $('#productName').val();
+                    let productCategory = $('#productCategory').val();
+                    let productCostPrice = $('#productCostPrice').val();
+                    let productPrice = $('#productPrice').val();
+                    let productQuantity = $('#productQuantity').val();
+                    let productId = $('#productId').val();
+                    $.ajax({
+                        url: "http://localhost:3000/product",
+                        success: function(product) {
+                            console.log(product)
+                        },
+                        method: "POST",
+                        data: {
+                            productName,
+                            productCategory,
+                            productCostPrice,
+                            productPrice,
+                            productQuantity,
+                        },
+                    });
+                })
+            });
+        </script>
 
     </div>
 

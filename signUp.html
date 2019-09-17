@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SignUp</title>
+    <link rel="stylesheet" type="text/css" href="grocery.css">
 </head>
 
 <body>
-    <div>
+    <div id="section">
         <form>
             <fieldset>
                 <legend>SignUp</legend>
@@ -24,11 +25,55 @@
                 <input type="text" id="phoneNumber"><br>
                 <label>Home Address:</label><br>
                 <input type="text" id="phoneNumber"><br>
+                <label>City:</label><br>
+                <input type="text" id="city"><br>
+                <label>Country:</label><br>
+                <input type="text" id="country"><br>
             </fieldset>
-            <button type="submit" name="submitProduct">Submit</button>
-            <button type="reset" name="resetProduct">Reset</button>
+            <button type="submit" name="submitData">Submit</button>
+            <button type="reset" name="resetData">Reset</button>
         </form>
     </div>
+    <script src="./jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('form').submit(function(e) {
+                e.preventDefault();
+                let employeeId = $('#employeeId').val();
+                let password = $('#password').val();
+                let fullName = $('#fullName').val();
+                let email = $('#email').val();
+                let phoneNumber = $('#phoneNumber').val();
+                let homeAddress = $('#homeAddress').val();
+                let city = $('#city').val();
+                let country = $('#country').val();
+                alert('form submitted');
+
+
+                $.ajax({
+                    url: "http://localhost:3000/userData",
+                    success: function(userData) {
+                        console.log(userData)
+                    },
+                    method: "POST",
+                    data: {
+                        employeeId,
+                        password,
+                        fullName,
+                        email,
+                        phoneNumber,
+                        homeAddress,
+                        city,
+                        country
+                    },
+
+
+                });
+
+            })
+        });
+    </script>
 
 </body>
 
