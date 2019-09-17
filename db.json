@@ -1,11 +1,11 @@
 {
     "product": [{
 
-            "product name": "",
-            "product cost": "",
-            "product category": "",
-            "product price": "",
-            "product quantity": ""
+            "productName": "",
+            "productCostPrice": "",
+            "productCategory": "",
+            "productPrice": "",
+            "productQuantity": ""
         }
 
     ],
