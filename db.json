@@ -1,0 +1,24 @@
+{
+    "product": [{
+
+            "product name": "",
+            "product cost": "",
+            "product category": "",
+            "product price": "",
+            "product quantity": ""
+        }
+
+    ],
+    "userData": [{
+        "employeeId": "",
+        "password": "",
+        "fullName": "",
+        "Gender": "",
+        "email": "",
+        "phoneNumber": "",
+        "homeAddress": "",
+        "city": "",
+        "country": ""
+
+    }]
+}
