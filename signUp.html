@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <div id="header">
+        <h1>Grocery Mobile Inventory System</h1>
+    </div>
     <div id="section">
         <form>
             <fieldset>
@@ -17,7 +20,7 @@
                 <label>Employee Full Name:</label><br>
                 <input type="text" id="fullName"><br>
                 <label>Email Address:</label><br>
-                <input type="text" id="email"><br>
+                <input type="email" id="email"><br>
                 <label>Password:</label><br>
                 <input type="password" id="password"><br>
                 <label>Phone Number:</label><br>
@@ -59,29 +62,47 @@
                     state: state
                 }
 
-                // if (employeeId == "") {
-                //     $("span.val_employeeId").html("This field is required").addClass('validate');
-                //     validation_holder = 1;
-                // } else {
-                //     $("span.val_employeeId").html("");
-                // }
-                // if (password == "") {
-                //     $("span.val_password").html("This field is required").addClass('validate');
-                //     validation_holder = 1;
-                // } else {
-                //     $("span.val_password").html("");
-                // }
-                // if (email == "") {
-                //     $("span.val_email").html("This field is required").addClass('validate');
-                //     validation_holder = 1;
-                // } else {
-                //     if (!email_regex.test(email)) {
-                //         $("span.val_email").html("Invalid Email!").addClass('validate');
-                //         validation_holder = 1;
-                //     }
-                //     $("span.val_email").html("");
-                // }
-
+                if (password == "") {
+                    $("span.val_password").html("This field is required").addClass('validate');
+                    validation_holder = 1;
+                } else {
+                    $("span.val_password").html("");
+                }
+                if (email == "") {
+                    $("span.val_email").html("This field is required").addClass('validate');
+                    validation_holder = 1;
+                } else {
+                    if (!email_regex.test(email)) {
+                        $("span.val_email").html("Invalid Email!").addClass('validate');
+                        validation_holder = 1;
+                    } else {
+                        $("span.val_email").html("");
+                    }
+                }
+                if (phoneNumber == "") {
+                    $("span_val_phoneNumber").html("This field is required").addClass('validate');
+                    validation_holder = 1;
+                } else {
+                    $('span.val_phoneNumber').html("");
+                }
+                if (homeAddress == "") {
+                    $("span_val_homeAddress").html("This field is required").addClass('validate');
+                    validation_holder = 1;
+                } else {
+                    $('span.val_homeAddress').html("");
+                }
+                if (city == "") {
+                    $("span_val_city").html("This field is required").addClass('validate');
+                    validation_holder = 1;
+                } else {
+                    $('span.val_city').html("");
+                }
+                if (state == "") {
+                    $("span_val_state").html("This field is required").addClass('validate');
+                    validation_holder = 1;
+                } else {
+                    $('span.val_state').html("");
+                }
                 $.ajax({
                     url: "http://localhost:3000/userData",
                     success: function(userData) {
