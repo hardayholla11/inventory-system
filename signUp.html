@@ -13,22 +13,21 @@
         <form>
             <fieldset>
                 <legend>SignUp</legend>
-                <label>Employee Id:</label><br>
-                <input type="text" id="employeeId"><br>
-                <label>Password:</label><br>
-                <input type="password" id="password"><br>
+
                 <label>Employee Full Name:</label><br>
                 <input type="text" id="fullName"><br>
                 <label>Email Address:</label><br>
                 <input type="text" id="email"><br>
+                <label>Password:</label><br>
+                <input type="password" id="password"><br>
                 <label>Phone Number:</label><br>
                 <input type="text" id="phoneNumber"><br>
                 <label>Home Address:</label><br>
-                <input type="text" id="phoneNumber"><br>
+                <input type="text" id="homeAddress"><br>
                 <label>City:</label><br>
                 <input type="text" id="city"><br>
-                <label>Country:</label><br>
-                <input type="text" id="country"><br>
+                <label>State:</label><br>
+                <input type="text" id="state"><br>
             </fieldset>
             <button type="submit" name="submitData">Submit</button>
             <button type="reset" name="resetData">Reset</button>
@@ -37,19 +36,51 @@
     <script src="./jquery.js"></script>
     <script>
         $(document).ready(function() {
-
-            $('form').submit(function(e) {
+            $('form').on('submit', function(e) {
                 e.preventDefault();
-                let employeeId = $('#employeeId').val();
+                // let employeeId = $('#employeeId').val();
                 let password = $('#password').val();
                 let fullName = $('#fullName').val();
                 let email = $('#email').val();
+                let email_regex = /^[\w%_\-.\d]+@[\w.\-]+.[A-Za-z]{2,6}$/;
                 let phoneNumber = $('#phoneNumber').val();
                 let homeAddress = $('#homeAddress').val();
                 let city = $('#city').val();
-                let country = $('#country').val();
-                alert('form submitted');
+                let state = $('#state').val();
 
+                const payload = {
+                    // "employeeId": "",
+                    password: password,
+                    fullName: fullName,
+                    email: email,
+                    phoneNumber: phoneNumber,
+                    homeAddress: homeAddress,
+                    city: city,
+                    state: state
+                }
+
+                // if (employeeId == "") {
+                //     $("span.val_employeeId").html("This field is required").addClass('validate');
+                //     validation_holder = 1;
+                // } else {
+                //     $("span.val_employeeId").html("");
+                // }
+                // if (password == "") {
+                //     $("span.val_password").html("This field is required").addClass('validate');
+                //     validation_holder = 1;
+                // } else {
+                //     $("span.val_password").html("");
+                // }
+                // if (email == "") {
+                //     $("span.val_email").html("This field is required").addClass('validate');
+                //     validation_holder = 1;
+                // } else {
+                //     if (!email_regex.test(email)) {
+                //         $("span.val_email").html("Invalid Email!").addClass('validate');
+                //         validation_holder = 1;
+                //     }
+                //     $("span.val_email").html("");
+                // }
 
                 $.ajax({
                     url: "http://localhost:3000/userData",
@@ -57,16 +88,7 @@
                         console.log(userData)
                     },
                     method: "POST",
-                    data: {
-                        employeeId,
-                        password,
-                        fullName,
-                        email,
-                        phoneNumber,
-                        homeAddress,
-                        city,
-                        country
-                    },
+                    data: payload,
 
 
                 });

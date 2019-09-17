@@ -1,24 +1,28 @@
 {
     "product": [{
-
+            "id": 1,
             "productName": "",
             "productCostPrice": "",
             "productCategory": "",
             "productPrice": "",
             "productQuantity": ""
+        },
+        {
+            "productName": "Banana",
+            "productCategory": "5200",
+            "productPrice": "dfghj",
+            "productQuantity": "15 bunches",
+            "id": 2
         }
-
     ],
     "userData": [{
-        "employeeId": "",
+        "id": 1,
         "password": "",
         "fullName": "",
-        "Gender": "",
         "email": "",
         "phoneNumber": "",
         "homeAddress": "",
         "city": "",
-        "country": ""
-
+        "state": ""
     }]
 }

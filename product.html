@@ -27,8 +27,7 @@
                 <input type="text" id="productPrice"><br>
                 <label>Product Quantity:</label><br>
                 <input type="text" id="productQuantity"><br>
-                <label>Product Id:</label><br>
-                <input type="text" id="productId"><br>
+
             </fieldset>
             <button type="submit" id="submitProduct">Submit</button>
             <button type="reset" id="resetProduct">Reset</button>
@@ -36,14 +35,15 @@
         <script src="./jquery.js"></script>
         <script>
             $(document).ready(function() {
-                $('form').on('submitProduct', function(e) {
+
+                $('form').on('submit', function(e) {
                     e.preventDefault();
                     let productName = $('#productName').val();
                     let productCategory = $('#productCategory').val();
                     let productCostPrice = $('#productCostPrice').val();
                     let productPrice = $('#productPrice').val();
                     let productQuantity = $('#productQuantity').val();
-                    let productId = $('#productId').val();
+
                     $.ajax({
                         url: "http://localhost:3000/product",
                         success: function(product) {
