@@ -27,8 +27,8 @@
             <form id="login">
                 <fieldset>
                     <legend>Employee Login Page</legend>
-                    <label>Employee Id:</label> <br>
-                    <input type="text" id="employeeId"><br>
+                    <label>Email:</label> <br>
+                    <input type="text" id="email"><br>
                     <label>Password:</label> <br>
                     <input type="password" id="password">
                 </fieldset>
@@ -46,10 +46,30 @@
     <script>
         $(document).ready(function() {
 
-            $('form').submit(function(e) {
-                e.preventDefault();
-                let employeeId = $('#employeeId').val();
+            $('#login').click(function() {
+
+                let email = $('#email').val();
                 let password = $('#password').val();
+                if (email == '' || password == '') {
+                    alert('Input your email and password')
+                } else {
+                    $.post("index.html", {
+                            email: email,
+                            password: password
+                        },
+                        function(data) {
+                            if (data == 'invalid Email') {
+                                $('input[type="email"]').css({
+                                    "border": "2px solid red",
+                                    "box-shadow": "0 0 3px red"
+                                });
+                                $('input[type="password"]').css({
+                                    "border": "2px solid #00F5FF",
+                                    "box-shadow": "0 0 5px #00F5FF"
+                                });
+                            }
+                        })
+                }
 
                 $.ajax({
                     url: "http://localhost:3000/userData",
@@ -58,7 +78,7 @@
                     },
                     method: "GET",
                     data: {
-                        employeeId,
+                        email,
                         password,
                     }
 
