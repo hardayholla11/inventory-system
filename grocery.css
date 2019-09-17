@@ -246,8 +246,8 @@ label {
 
 button {
     border-radius: .5rem;
-    background-color: blue;
     padding: .5rem;
+    font-size: medium
 }
 
 button:focus {
@@ -424,6 +424,18 @@ h5 {
 .h6,
 h6 {
     font-size: 1rem
+}
+
+.landing-page {
+    float: right;
+    margin: 5px;
+    padding: 15px;
+    width: 300px;
+    height: 300px
+}
+
+#intro {
+    background-image: url("");
 }
 
 .lead {
@@ -10343,6 +10355,3 @@ a.text-dark:hover {
         border-color: #dee2e6
     }
 }
-
-
-/*# sourceMappingURL=bootstrap.min.css.map */
